@@ -7,7 +7,7 @@ const projects = [
     image: "/projects/portfolio.png",
     description:
       "Built a responsive portfolio with reusable components ,Styled with Tailwind CSS and enhanced UX using React Icons, Toast, Scroll, and Typed.",
-    githubLink: "https://github.com/yourgithub/gesture-music-controller",
+    githubLink: "https://github.com/Aashish8579/portfolio-website",
   },
   {
     id: 2,
