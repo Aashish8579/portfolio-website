@@ -1,68 +1,92 @@
-// import React from "react";
-import java from "../../public/java.png";
-import python from "../../public/python.webp";
-import MongoDB from "../../public/mongodb.jpg";
-import express from "../../public/express.png";
-import reactjs from "../../public/reactjs.png";
-import nodejs from "../../public/node.png";
 
-function Portfolio() {
-  const cardItem = [
-    { id: 1,
-    logo: MongoDB,
-     name: "MongoDB" },
 
-    {
-      id: 2,
-      logo: express,
-      name: "Express",
-    },
-    {
-      id: 3,
-      logo: reactjs,
-      name: "ReactJS",
-    },
-    {
-      id: 4,
-      logo: nodejs,
-      name: "NodeJS",
-    },
-    {
-      id: 5,
-      logo: python,
-      name: "Python",
-    },
-    {
-      id: 6,
-      logo: java,
-      name: "JAVA",
-    },
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "portfolio-website",
+    image: "/projects/portfolio.png",
+    description:
+      "Built a responsive portfolio with reusable components ,Styled with Tailwind CSS and enhanced UX using React Icons, Toast, Scroll, and Typed.",
+    githubLink: "https://github.com/yourgithub/gesture-music-controller",
+  },
+  {
+    id: 2,
+    title: "Gym-website",
+    image: "/projects/gym-website.png",
+    description:
+      "• Built a full-stack gym website with a modern, responsive UI.",
+    githubLink: "https://github.com/Aashish8579/gym_project",
+  },
+  {
+    id: 3,
+    title: "Food Ordering website UI",
+    image: "/projects/food-order.png",
+    description:
+      "React-based food ordering UI with context API, cart feature, and responsive design.",
+    githubLink: "https://github.com/Aashish8579/Food-App",
+  },
+  {
+    id: 4,
+    title: "Spotify-clone",
+    image: "/projects/spotify.png",
+    description:
+      "Developed a fully functional Spotify-inspired music streaming web app using pure JavaScript, HTML, and CSS. The project replicates core Spotify features and offers a sleek, responsive UI.",
+    githubLink: "https://github.com/Aashish8579/spotify",
+  },
+  {
+    id: 5,
+    title: "Weather App",
+    image: "/projects/weather.png",
+    description:
+      "Developed a responsive weather application using JavaScript that fetches real-time weather data for any city using the OpenWeatherMap API. The app displays current temperature, weather conditions, humidity, and wind speed with dynamic UI updates based on user input."},
+  {
+    id: 6,
+    title: "Tic-tac-toe",
+    image: "/projects/Tic-tac-toe.png",
+    description:
+      "React-based food ordering UI with context API, cart feature, and responsive design.Built a classic 2-player Tic Tac Toe game using vanilla JavaScript with a clean and responsive UI. The game includes interactive grid functionality, win/draw detection logic, and reset functionality. Implemented modular and reusable code structure for game logic and DOM manipulation. D",
+    githubLink: "https://github.com/Aashish8579/tic-tac-toe",
+  },
+  
+];
 
+export default function Portfolio() {
   return (
-    <div name="Portfolio" className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20 mt-10">
-      <div>
-        <h1 className="text-3xl font-bold mb-5">Featured Projects</h1>
-        {/* <span className="underline font-semibold">Featured Projects</span> */}
+    <section className="py-12 bg-gray-100" id="portfolio">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl  font-bold text-center mb-8">My Projects</h2>
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{project.title}</h3>
+                <p className="text-gray-600 text-sm mt-2">
+                  {project.description}
+                </p>
+                <div className="mt-4 flex justify-between">
 
-        <div className="grid grid-cols md:grid-cols-4 gap-3 my-5">
-          {cardItem.map(({ id, logo, name }) => (
-            <div  className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer hover:scale-110 duration-300" key={id}>
-    <img src={logo}  className="w-[120px] h-[120px]  p-1 rounded-full border-2px" alt="" />
-    <div>
-      <div className=" px-2 font-bold text-xl mb-2">{name}</div>
-      <p className="px-2 text-gray">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, possimus.</p>
-    </div>
-    <div className="px-6 py-4 space-x-3 justify-around">
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded ">Video</button>
-      <button className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded ">Source Code</button>
-    </div>
+                  <a
+                    href={project.githubLink}
+                    className="text-green-700 hover:underline text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub link
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Portfolio;

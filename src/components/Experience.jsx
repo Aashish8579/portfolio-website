@@ -1,72 +1,61 @@
+import React from "react";
 
-import html from "../../public/html.png";
-import css from "../../public/css.jpg";
-import javascript from "../../public/mongodb.jpg";
-import oracle from "../../public/oracle.png";
-import spring from "../../public/spring.png";
-import springBoot from "../../public/springBoot.jpg";
-
-function Experience() {
-  const cardItem = [
-    { id: 1, logo: html, name: "HTML" },
-
+const Experience = () => {
+  const experiences = [
     {
-      id: 2,
-      logo: css,
-      name: "CSS",
+      title: "AI Tutor – Student Learning Dashboard",
+      role: "Frontend Developer",
+      duration: "Jan 2025 – Mar 2025",
+      tech: "React.js, JavaScript, HTML, CSS, REST APIs",
+      points: [
+        "Developed a fully responsive AI-powered student dashboard for enhanced digital learning experiences.",
+        "Implemented progress tracking, voice interaction, and AI-generated quizzes.",
+        "Built modular and reusable React components for efficient UI development.",
+        "Integrated RESTful APIs for real-time data interaction and content delivery.",
+        "Implemented secure user authentication to provide personalized access.",
+      ],
     },
     {
-      id: 3,
-      logo: javascript,
-      name: "JAVASCRIPT",
-    },
-    {
-      id: 4,
-      logo: oracle,
-      name: "ORACLE",
-    },
-    {
-      id: 5,
-      logo: spring,
-      name: "SPRING",
-    },
-    {
-      id: 6,
-      logo: springBoot,
-      name: "SPRINGBOOT",
+      title: "Movie Recommendation System – YBI Foundation",
+      role: "Machine Learning Intern",
+      duration: "Feb 2025 – Mar 2025",
+      tech: "Python, Pandas, Scikit-learn, Machine Learning",
+      points: [
+        "Developed a content-based movie recommendation system using machine learning techniques.",
+        "Used cosine similarity to generate personalized recommendations.",
+        "Handled data cleaning, preprocessing, and feature extraction using Pandas.",
+        "Built and evaluated the recommendation model using Scikit-learn.",
+        "Completed under the mentorship of the YBI Foundation as part of their industry training program.",
+      ],
     },
   ];
 
   return (
-    <div name="Experience" className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16 ">
-      <div>
-        <h1 className="text-3xl font-bold mb-5  ">Experience</h1>
-        <p className="">
-          I have ve more than years of experience in below technologies.
-        </p>
-
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-7 my-3">
-          {cardItem.map(({ id, logo, name }) => (
+    <section id="experience" className="py-12 bg-white">
+      <div className="max-w-6xl mx-auto px-4 ">
+        <h2 className="text-3xl font-bold text-center mb-10">Experience</h2>
+        <div className="space-y-10">
+          {experiences.map((exp, index) => (
             <div
-              className="flex flex-col items-center justify-center border-[2px] rounded-full md:w-[200px] md:h-[200px] p-1 cursor-pointer hover:scale-100 duration-300"
-              key={id}
+              key={index}
+              className="p-6 border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
             >
-              <img
-                src={logo}
-                className="w-[150px]   rounded-full "
-                alt=""
-              />
-              <div>
-                <div className="">{name}</div>
-               
-              </div>
-             
+              <h3 className="text-xl font-semibold text-indigo-600">
+                {exp.title}
+              </h3>
+              <p className="text-gray-700">{exp.role} | {exp.duration}</p>
+              <p className="text-sm text-gray-500 italic mb-3">{exp.tech}</p>
+              <ul className="list-disc list-inside space-y-1 text-gray-800">
+                {exp.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Experience;
